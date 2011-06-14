@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Thread Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="#" type="text/css" rel="stylesheet"> 
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.plugin.clipboard.js"></script>
+        <script type="text/javascript">
+        
+        /*
+         * Copies the text normally to clipboard, but wraps it in bbcode [quote] with author name into the textarea
+         */
+        
+            $(function(){
+                $('div').each(function(el){
+                    
+                    var author = $(this).children('b').text();
+                    $(this).children('p').clipboard(
+                    { 
+                        oncopy: function(e){
+                            $('#post').val($('#post').val() + "[quote="+author+"]" + e + "[/quote]");
+                        }
+                
+                    });
+                    
+                });
+            
+            });        
+        </script>
+        <style type="text/css">          
+            div {
+                border-bottom:1px solid black;
+                margin-top:10px;
+            }
+            #post{
+                margin:20px;
+                width:600px;
+                height:200px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div>Posted by: <b>Niklas</b> @ 12:12<br />
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p></div>
+
+        <div>Posted by: <b>Lauren</b> @ 12:14<br />
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p></div>
+
+        <div>Posted by: <b>Tom</b> @ 15:14<br />
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p></div>
+
+        <textarea id="post"></textarea>
+
+    </body>
+</html>
