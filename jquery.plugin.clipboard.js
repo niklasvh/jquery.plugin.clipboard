@@ -8,20 +8,25 @@
 (function( $ ){
     $.fn.clipboard = function(options) {     
         var defaults = {
-            prepend: null,
-            append: null,
-            oncopy: function(content){
-                
-            }
+            prepend: null, // content to prepend to copy selection
+            append: null,  // content to append to copy selection
+            disable:false,  // disable copying for element
+            oncopy: function(content){} // callback on copy event
                             
         };
                     
         var options = $.extend({},defaults,options);
+        
         $(this).each(function(i,el){
 
             el.oncopy = function(e,b){
+                if (options.disable){
+                    return false;
+                }
                 if (window.clipboardData && document.selection) { // Internet Explorer
                             
+                            
+         
                     var s = document.selection;
 
                     var r = s.createRange();
@@ -40,6 +45,7 @@
                     if (window.clipboardData.setData ("Text", t)){
                         return false;
                     }
+                    
                 }else {
                     // the rest (which don't support clipboardData)
                                 
@@ -91,7 +97,8 @@
                     if (options.append!==null){
                         s.addRange(rangeAppend);   
                     }
-                     options.oncopy(s.toString());
+                    
+                    options.oncopy(s.toString());
                 }
             };
         });

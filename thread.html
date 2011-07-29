@@ -17,7 +17,7 @@
                     
                     var author = $(this).children('b').text();
                     $(this).children('p').clipboard(
-                    { 
+                    {                        
                         oncopy: function(e){
                             $('#post').val($('#post').val() + "[quote="+author+"]" + e + "[/quote]");
                         }
@@ -38,6 +38,7 @@
                 width:600px;
                 height:200px;
             }
+            
         </style>
     </head>
     <body>
