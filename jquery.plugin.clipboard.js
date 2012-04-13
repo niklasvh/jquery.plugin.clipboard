@@ -53,10 +53,8 @@
                     var s = window.getSelection();
                     var r = s.getRangeAt(0);
                             
-                   
-                            
                     if (options.append!==null){
-                        var a = $('<span />').html(options.append);
+                        var a = $('<span style="display: inline-block; width: 0px; height: 0px; overflow: hidden; zoom: 1;" />').html(options.append);
                                 
                         var tmpr = s.getRangeAt(s.rangeCount-1);
                                 
@@ -74,10 +72,8 @@
                                 
                     }
                                 
-                                
-                                                     
                     if (options.prepend!==null){
-                        var n = $('<span />').html(options.prepend);
+                        var n = $('<span style="display: inline-block; width: 0px; height: 0px; overflow: hidden; zoom: 1;" />').html(options.prepend);
                                                                                                                
                         r.insertNode(n[0]);
                             
